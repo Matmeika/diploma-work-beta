@@ -22,7 +22,7 @@ let clients_list = ref([
 	<RouterView></RouterView>
 </div>
 <div>
-	<div v-for ="client in (clients_list.value)">
+	<div v-for ="(client,index) in (clients_list.value)">
 	{{ client }}
 	</div>
 </div>
