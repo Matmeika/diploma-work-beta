@@ -1,32 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-let clients_list = ref([
-{
-	name: 'Vova',
-	password: '1234'
-},
-{
-	name: 'Andrew',
-	password: '1111'
-}])
+// let clients_list = ref([
+// {
+// 	name: 'Vova',
+// 	password: '1234'
+// },
+// {
+// 	name: 'Andrew',
+// 	password: '1111'
+// }])
 </script>
 
 <template>
-<div class="header">
-	<a href="#/masters">Мастера</a>
-	<a href="#/clients">Клиенты</a>
-	<a href="#/services">Услуги</a>
-	<a href="#/booking">Бронирование</a>
-</div>
-<div class="pageWrapper">
-	<RouterView></RouterView>
-</div>
 <div>
-	<div v-for ="(client,index) in (clients_list.value)">
-	{{ client }}
+	<div class="header">
+		<router-link to="/masters">Мастера</router-link>
+		<router-link to="/clients">Клиенты</router-link>
+		<router-link to="/services">Услуги</router-link>
+		<router-link to="/booking">Бронирование</router-link>
+	</div>
+	<div class="pageWrapper">
+		<RouterView></RouterView>
+	</div>
+	<div>
+		<!-- <div v-for ="(client,index) in (clients_list.value)"> -->
+		<!-- {{ client }} -->
+		<!-- </div> -->
 	</div>
 </div>
-
 </template>
 
 <style>
