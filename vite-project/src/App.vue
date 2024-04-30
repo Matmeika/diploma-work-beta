@@ -1,14 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-// let clients_list = ref([
-// {
-// 	name: 'Vova',
-// 	password: '1234'
-// },
-// {
-// 	name: 'Andrew',
-// 	password: '1111'
-// }])
 </script>
 
 <template>
@@ -21,11 +11,6 @@ import { ref } from 'vue';
 	</div>
 	<div class="pageWrapper">
 		<RouterView></RouterView>
-	</div>
-	<div>
-		<!-- <div v-for ="(client,index) in (clients_list.value)"> -->
-		<!-- {{ client }} -->
-		<!-- </div> -->
 	</div>
 </div>
 </template>
@@ -54,7 +39,7 @@ body {
 	margin-top: 20px;
 	flex-direction: column;
 	justify-content: start;
-	align-self: center;
+	align-items: start;
 }
 .pageWrapper {
 	display: flex;
@@ -63,4 +48,5 @@ body {
 	align-self: center;
 	width: 100%;
 }
+
 </style>
