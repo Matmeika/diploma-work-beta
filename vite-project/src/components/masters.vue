@@ -66,7 +66,7 @@ function save() {
 	<div class="mastersWrapper">
 		Наши мастеры:
 		<li class="masters" v-for ="(client) in (masters_list)">
-		{{ client.name }}, {{ client.id }}
+		{{ client.name }}, id: {{ client.id }}
 		<input v-model="activeName">
 		<button @click="changeName(client.name,activeName)"> Изменить имя</button>
 		<input v-model="activePassword">

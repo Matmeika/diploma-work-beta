@@ -1,53 +1,60 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import {useStore} from "../stores"
+import moment from 'moment';
+moment().format();
 const store = useStore()
 const services_list = computed(() => store.services_list)
 const masters_list = computed(() => store.masters_list)
 let booking_list = ref([
 {
-	"service": 'gitting',
-	"master": '1234 BYN',
-	"date": "02:04:2024",
-	"time": '55 minutes',
+	"service": 'Маникюр',
+	"master": 'Владимир',
+	"date": "2024-05-18T00:08",
 },
 {
-	"service": 'vitting',
-	"master": '1234 BYN',
-	"date": "02:04:2024",
-	"time": '55 minutes',
+	"service": 'Педикюр',
+	"master": 'Андрей',
+	"date": "2024-05-17T00:08",
 }]);
 let activeSevice = ""
 let activeMaster = ""
-let activeTime = ""
 let activeDate = ""
 console.log(services_list)
-function Delete(Date:string,Time:string) {
+let retrievedObject = localStorage.getItem('bookingList');
+if (retrievedObject) {
+	booking_list.value = []
+	console.log(retrievedObject)
+	booking_list.value.push(...JSON.parse(retrievedObject));
+}
+function Delete(Date:string,) {
 for (let i=0; i < booking_list.value.length; i++) {
 		if (booking_list.value[i].date === Date) {
-			if (booking_list.value[i].time === Time) {
-
-				booking_list.value.splice(i,1);
-				break
-			}
+			booking_list.value.splice(i,1);
+			break
 		}
 	}
 }
 function addNewClient() {
+	console.log(activeDate)
 	 for(let i=0; i < booking_list.value.length; i++) {
 	 	if (booking_list.value[i].master === activeMaster) {
 	 		if (booking_list.value[i].date === activeDate) {
+				alert("На такую дату и время уже есть бронь")
+				return 0
 
 	 		}
 
 	 	}
 	 }
 
-	 booking_list.value.push({service: activeSevice, master: activeMaster, date: activeDate, time:activeTime});
+	 booking_list.value.push({service: activeSevice, master: activeMaster, date: activeDate});
 	 activeSevice = ""
 	 activeMaster = ""
-	 activeTime = ""
 	 activeDate = ""
+}
+function save() {
+	localStorage.setItem('bookingList', (JSON.stringify(booking_list.value)));
 }
 </script>
 
@@ -56,8 +63,8 @@ function addNewClient() {
 	<div class="bookingWrapper">
 		Забронированые сеансы:
 		<li class="booking"  v-for ="(client) in (booking_list)">
-		{{ client.service }}, {{ client.master }}, {{ client.date }}, {{ client.time }}, 	
-		<button @click="Delete(client.time, client.date)"> Удалить бронирование</button>
+		{{ client.service }}, у мастера {{ client.master }}, на {{ moment(client.date.toString(), "YYYY-MM-DDTHH:mm").format("DD MM YYYY, В HH:mm") }}	
+		<button @click="Delete(client.date)"> Удалить бронирование</button>
 		</li>
 		<select style="margin-top: 20px;" v-model="activeSevice" placeholder="Название Услуги">
 			<option v-for="service in services_list">{{ service.name }}</option>
@@ -65,8 +72,9 @@ function addNewClient() {
 		<select v-model="activeMaster" placeholder="Мастер">
 			<option v-for="(master) in masters_list">{{ master.name }}</option>
 		</select>
-		<input type="datetime-local" v-model="activeTime" placeholder="Дата и время проведения">
+		<input type="datetime-local" v-model="activeDate" placeholder="Дата и время проведения">
 		<button @click="addNewClient()"> Забронировать сеанс</button>
+		<button @click="save()">Сохранить изменения</button>
 	</div>
 </div> 
 </template>

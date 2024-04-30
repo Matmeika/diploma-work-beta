@@ -6,15 +6,15 @@ let clients_list = ref([
 	"password": '1234'
 },
 {
-	name: 'Andrew',
-	password: '1111'
+	"name": 'Andrew',
+	"password": '1111'
 }]);
 let activeName = ""
 let activePassword = ""
-clients_list.value = []
 	console.log(clients_list.value)
 let retrievedObject = localStorage.getItem('clientsList');
 if (retrievedObject) {
+	clients_list.value = [] 
 	console.log(retrievedObject)
 	clients_list.value.push(...JSON.parse(retrievedObject));
 }
