@@ -75,9 +75,9 @@ function save() {
 		<button  @click="changeTime(client.name,activeTime)"> Изменить длительность</button>
 		<input v-model="activeCost">
 		<button @click="changeCost(client.name,activeCost)"> Изменить стоимость</button>
-		<button @click="Delete(client.name)"> Удалить клиента</button>
+		<button @click="Delete(client.name)"> Удалить услугу</button>
 		</li>
-
+		
 		<input style="margin-top: 20px;" v-model="activeName" placeholder="Название Услуги">
 		<input v-model="activeCost" placeholder="Стоимость услуги">
 		<input v-model="activeTime" placeholder="Длительность услуги">
@@ -94,12 +94,12 @@ function save() {
 	justify-content: start;
 	align-items: start;
 	gap: 20px;
-	width: 1500px;
+	width: 1100px;
 }
 .service {
 	display: flex;
 	flex-direction: row;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 10px;

@@ -63,7 +63,7 @@ function save() {
 	<div class="bookingWrapper">
 		Забронированые сеансы:
 		<li class="booking"  v-for ="(client) in (booking_list)">
-		{{ client.service }}, у мастера {{ client.master }}, на {{ moment(client.date.toString(), "YYYY-MM-DDTHH:mm").format("DD MM YYYY, В HH:mm") }}	
+		{{ client.service }}, у мастера {{ client.master }}, на {{ moment(client.date.toString(), "YYYY-MM-DDTHH:mm").format("DD MM YYYY, в HH:mm") }}	
 		<button @click="Delete(client.date)"> Удалить бронирование</button>
 		</li>
 		<select style="margin-top: 20px;" v-model="activeSevice" placeholder="Название Услуги">

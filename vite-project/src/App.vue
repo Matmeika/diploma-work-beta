@@ -27,12 +27,18 @@
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+	background-color: rgb(101, 101, 101);
+	border-radius:  12px;
+	
 }
 body {
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
+	background-color: #494949;
+	color: rgba(255, 255, 255, 0.87);
+
 }
 .wrapper_minor {
 	display: flex;
@@ -47,6 +53,9 @@ body {
 	justify-content: start;
 	align-self: center;
 	width: 100%;
+}
+a {
+	color: #1f28b5;
 }
 
 </style>
