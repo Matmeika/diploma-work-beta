@@ -8,14 +8,14 @@ const services_list = computed(() => store.services_list)
 const masters_list = computed(() => store.masters_list)
 let booking_list = ref([
 {
-	"service": 'Маникюр',
+	"service": 'Стрижка',
 	"master": 'Владимир',
-	"date": "2024-05-18T00:08",
+	"date": "2024-05-18T10:08",
 },
 {
 	"service": 'Педикюр',
 	"master": 'Андрей',
-	"date": "2024-05-17T00:08",
+	"date": "2024-05-17T70:08",
 }]);
 let activeSevice = ""
 let activeMaster = ""
@@ -36,10 +36,13 @@ for (let i=0; i < booking_list.value.length; i++) {
 	}
 }
 function addNewClient() {
-	console.log(activeDate)
+	if ((activeSevice) (activeDate)) {
+
+	}
+	console.log(activeMaster)
 	 for(let i=0; i < booking_list.value.length; i++) {
 	 	if (booking_list.value[i].master === activeMaster) {
-	 		if (booking_list.value[i].date === activeDate) {
+	 		if (moment(booking_list.value[i].date).isSame(activeDate, "hour")) {
 				alert("На такую дату и время уже есть бронь")
 				return 0
 
