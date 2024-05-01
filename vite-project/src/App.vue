@@ -55,7 +55,7 @@ body {
 	width: 100%;
 }
 a {
-	color: #1f28b5;
+	color: #1620a9;
 }
 
 </style>

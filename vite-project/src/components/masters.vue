@@ -64,7 +64,7 @@ function save() {
 <template>
 <div class="wrapper_minor">
 	<div class="mastersWrapper">
-		Наши мастера:
+		<h2>Наши мастера:</h2>
 		<li class="masters" v-for ="(client) in (masters_list)">
 		{{ client.name }}, id: {{ client.id }}
 		<input v-model="activeName">

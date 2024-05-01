@@ -66,7 +66,7 @@ function save() {
 <template>
 <div class="wrapper_minor">
 	<div class="serviceWrapper">
-		Наши услуги:
+		<h2>Наши услуги:</h2>
 		<li class="service"  v-for ="(client) in (services_list)">
 		{{ client.name }}, {{ client.time }}, {{ client.cost }}, 		
 		<input v-model="activeName">
